@@ -3,12 +3,20 @@ const fakeRequest = require('supertest');
 const app = require('../index.js');
 const pool = require('../lib/utils/pool.js');
 const fs = require('fs');
+
 const testDog = {
     id: '1',
     name: 'Marcus',
     age: 6,
     breed: 'Terrier',
     nicknames: ['Ping', 'Boobie', 'Boo']
+}
+const updatedTestDog = {
+    id: '1',
+    name: 'Marucs',
+    age: 6,
+    breed: 'Terrier',
+    nicknames: ['Ping', 'Boobie', 'Boo', 'Boobito']
 }
 
 
@@ -48,5 +56,11 @@ describe('test dogs CRUD routes', () => {
         expect(response.body).toEqual(testDog)
     })
 
+    it('test /update CRUD route, should return updatedTestDog', async () => {
+        const response = await fakeRequest(app)
+            .put(`/update/${updatedTestDog.id}`)
+            .send(updatedTestDog);
 
+        expect(response.body).toEqual(updatedTestDog);
+    })
 });
