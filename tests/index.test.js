@@ -62,5 +62,12 @@ describe('test dogs CRUD routes', () => {
             .send(updatedTestDog);
 
         expect(response.body).toEqual(updatedTestDog);
+    });
+
+    it('test /delete CRUD route, should return updatedTestDog', async () => {
+        const response = await fakeRequest(app)
+            .delete(`/delete/${updatedTestDog.id}`)
+
+        expect(response.body).toEqual(updatedTestDog);
     })
 });

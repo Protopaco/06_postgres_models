@@ -47,5 +47,13 @@ app.put('/update/:id', async (req, res) => {
     }
 })
 
+app.delete('/delete/:id', async (req, res) => {
+    try {
+        res.status(200).send(await Dogs.delete(req.params.id))
+    } catch (e) {
+        res.send(e.message);
+    }
+})
+
 
 module.exports = app;
