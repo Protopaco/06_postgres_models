@@ -28,12 +28,18 @@ describe('test dogs CRUD routes', () => {
         expect(response.body).toEqual(expectedResponse);
     });
 
-    it('test /insert CRUD route', async () => {
+    it('test /insert CRUD route, should insert testDog', async () => {
         const response = await fakeRequest(app)
             .post('/insert')
             .send(testDog);
 
         expect(response.body).toEqual(testDog);
+    });
+
+    it('test /find CRUD route, should return all dogs', async () => {
+        const response = await fakeRequest(app).get('/find');
+
+        expect(response.body).toEqual([testDog])
     })
 
 
