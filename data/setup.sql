@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS dogs;
+
+CREATE TABLE dogs (
+    id BIGINT GENERATED ALWAYS AS IDENTITY,
+    name TEXT NOT NULL,
+    breed TEXT NOT NULL,
+    age INTEGER NOT NULL,
+    nicknames TEXT[] NOT NULL
+);
