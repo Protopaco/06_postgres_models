@@ -40,6 +40,12 @@ describe('test dogs CRUD routes', () => {
         const response = await fakeRequest(app).get('/find');
 
         expect(response.body).toEqual([testDog])
+    });
+
+    it('test /find/:id CRUD route, should return testDog', async () => {
+        const response = await fakeRequest(app).get(`/find/${testDog.id}`);
+
+        expect(response.body).toEqual(testDog)
     })
 
 

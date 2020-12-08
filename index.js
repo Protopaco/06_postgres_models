@@ -31,6 +31,13 @@ app.get('/find', async (req, res) => {
     }
 })
 
+app.get('/find/:id', async (req, res) => {
+    try {
+        res.status(200).send(await Dogs.findById(req.params.id))
+    } catch (e) {
+        res.send(e.message);
+    }
+})
 
 
 module.exports = app;
