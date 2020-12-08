@@ -5,5 +5,5 @@ CREATE TABLE dogs (
     name TEXT NOT NULL,
     breed TEXT NOT NULL,
     age INTEGER NOT NULL,
-    nicknames ARRAY NOT NULL
+    nicknames TEXT[] NOT NULL
 );
